@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F98AAB8919FF8E380094E977 /* ChannelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AAB8819FF8E380094E977 /* ChannelController.swift */; };
+		F98B44331A0B635A00E7A86E /* HttpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98B44321A0B635A00E7A86E /* HttpController.swift */; };
 		F9AB8B8519FE97D300D4CE62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AB8B8419FE97D300D4CE62 /* AppDelegate.swift */; };
 		F9AB8B8719FE97D300D4CE62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AB8B8619FE97D300D4CE62 /* ViewController.swift */; };
 		F9AB8B8A19FE97D300D4CE62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9AB8B8819FE97D300D4CE62 /* Main.storyboard */; };
 		F9AB8B8C19FE97D300D4CE62 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9AB8B8B19FE97D300D4CE62 /* Images.xcassets */; };
 		F9AB8B8F19FE97D300D4CE62 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9AB8B8D19FE97D300D4CE62 /* LaunchScreen.xib */; };
 		F9AB8B9B19FE97D300D4CE62 /* DBFMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AB8B9A19FE97D300D4CE62 /* DBFMTests.swift */; };
+		F9AB8BA719FF3A6900D4CE62 /* baidu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9AB8BA519FF3A6900D4CE62 /* baidu.jpg */; };
+		F9AB8BA819FF3A6900D4CE62 /* listen_katong.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F9AB8BA619FF3A6900D4CE62 /* listen_katong.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F98AAB8819FF8E380094E977 /* ChannelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelController.swift; sourceTree = "<group>"; };
+		F98B44321A0B635A00E7A86E /* HttpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpController.swift; sourceTree = "<group>"; };
 		F9AB8B7F19FE97D300D4CE62 /* DBFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DBFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9AB8B8319FE97D300D4CE62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9AB8B8419FE97D300D4CE62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +42,8 @@
 		F9AB8B9419FE97D300D4CE62 /* DBFMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DBFMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9AB8B9919FE97D300D4CE62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9AB8B9A19FE97D300D4CE62 /* DBFMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBFMTests.swift; sourceTree = "<group>"; };
+		F9AB8BA519FF3A6900D4CE62 /* baidu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = baidu.jpg; sourceTree = "<group>"; };
+		F9AB8BA619FF3A6900D4CE62 /* listen_katong.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = listen_katong.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +85,12 @@
 		F9AB8B8119FE97D300D4CE62 /* DBFM */ = {
 			isa = PBXGroup;
 			children = (
+				F98AAB8819FF8E380094E977 /* ChannelController.swift */,
+				F9AB8BA419FF3A6900D4CE62 /* images */,
 				F9AB8B8419FE97D300D4CE62 /* AppDelegate.swift */,
-				F9AB8B8619FE97D300D4CE62 /* ViewController.swift */,
 				F9AB8B8819FE97D300D4CE62 /* Main.storyboard */,
+				F98B44321A0B635A00E7A86E /* HttpController.swift */,
+				F9AB8B8619FE97D300D4CE62 /* ViewController.swift */,
 				F9AB8B8B19FE97D300D4CE62 /* Images.xcassets */,
 				F9AB8B8D19FE97D300D4CE62 /* LaunchScreen.xib */,
 				F9AB8B8219FE97D300D4CE62 /* Supporting Files */,
@@ -110,6 +121,16 @@
 				F9AB8B9919FE97D300D4CE62 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F9AB8BA419FF3A6900D4CE62 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				F9AB8BA519FF3A6900D4CE62 /* baidu.jpg */,
+				F9AB8BA619FF3A6900D4CE62 /* listen_katong.jpeg */,
+			);
+			name = images;
+			path = ../images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,7 +214,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9AB8B8A19FE97D300D4CE62 /* Main.storyboard in Resources */,
+				F9AB8BA719FF3A6900D4CE62 /* baidu.jpg in Resources */,
 				F9AB8B8F19FE97D300D4CE62 /* LaunchScreen.xib in Resources */,
+				F9AB8BA819FF3A6900D4CE62 /* listen_katong.jpeg in Resources */,
 				F9AB8B8C19FE97D300D4CE62 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +237,8 @@
 			files = (
 				F9AB8B8719FE97D300D4CE62 /* ViewController.swift in Sources */,
 				F9AB8B8519FE97D300D4CE62 /* AppDelegate.swift in Sources */,
+				F98AAB8919FF8E380094E977 /* ChannelController.swift in Sources */,
+				F98B44331A0B635A00E7A86E /* HttpController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +430,7 @@
 				F9AB8BA019FE97D300D4CE62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F9AB8BA119FE97D300D4CE62 /* Build configuration list for PBXNativeTarget "DBFMTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +439,7 @@
 				F9AB8BA319FE97D300D4CE62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

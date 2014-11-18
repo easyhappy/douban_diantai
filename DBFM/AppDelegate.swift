@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  DBFM
-//
-//  Created by andyhu on 14-10-27.
-//  Copyright (c) 2014年 andyhu. All rights reserved.
-//
 
 import UIKit
 
