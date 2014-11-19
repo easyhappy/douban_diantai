@@ -82,6 +82,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.tableData = results["song"] as NSArray
             println(results)
             self.tv.reloadData()
+            var rowData = self.tableData.firstObject as NSDictionary
+            var url = rowData["url"] as String
+            self.onSetAudio(url)
+            
         }else if (results["channels"] != nil){
             self.channelData = results["channels"] as NSArray
         }
