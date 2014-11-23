@@ -17,21 +17,34 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var progressView: UIView!
     @IBOutlet weak var playTime: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var nextMuisc: UIButton!
     var eHttp:HttpController = HttpController()
     var tableData:NSArray = NSArray()
     var channelData:NSArray = NSArray()
     var imageCache = Dictionary<String, UIImage>()
     var audioPlayer:MPMoviePlayerController = MPMoviePlayerController()
     var timer:NSTimer?
+    var currentMuiscIndex:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         progressBar.progress = 0.0
         audioPlayer.repeatMode = .One
+        nextMuisc.addTarget(self, action: "test", forControlEvents: UIControlEvents.TouchUpInside)
         eHttp.delegate = self
         eHttp.onSearch("http://www.douban.com/j/app/radio/channels")
         eHttp.onSearch("http://douban.fm/j/mine/playlist?channel=0")
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func test(){
+     println("just test")
+     let rowData:NSDictionary = self.tableData[currentMuiscIndex+1] as NSDictionary
+     println(currentMuiscIndex)
+     currentMuiscIndex  += 1
+     println(currentMuiscIndex)
+     println("==============")
+     updateCurrentMusic(rowData)
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,6 +74,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "douban")
         let rowData:NSDictionary = self.tableData[indexPath.row] as NSDictionary
+        currentMuiscIndex = indexPath.row
         
         cell.textLabel.text = rowData["title"] as? String
         //cell.detailTextLabel.text = rowData["artist"] as String
@@ -148,6 +162,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         var rowData:NSDictionary = self.tableData[indexPath.row] as NSDictionary
+        currentMuiscIndex = indexPath.row
         updateCurrentMusic(rowData)
     }
     
