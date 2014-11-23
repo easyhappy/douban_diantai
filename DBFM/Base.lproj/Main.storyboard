@@ -126,6 +126,7 @@
                         <outlet property="iv" destination="EQp-GK-BC0" id="Rm6-g1-2yy"/>
                         <outlet property="playTim" destination="mdH-U1-suP" id="AGx-Yd-AX5"/>
                         <outlet property="playTime" destination="g40-uW-6d0" id="Ubv-1A-2Ao"/>
+                        <outlet property="progressBar" destination="lTA-ng-Gdq" id="2MZ-cC-5eu"/>
                         <outlet property="progressView" destination="mdH-U1-suP" id="HdQ-hW-gvv"/>
                         <outlet property="tv" destination="apS-xf-M3e" id="io4-8f-uIc"/>
                     </connections>

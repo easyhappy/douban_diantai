@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var playTim: UIView!
     @IBOutlet weak var progressView: UIView!
     @IBOutlet weak var playTime: UILabel!
-    
+    @IBOutlet weak var progressBar: UIProgressView!
     var eHttp:HttpController = HttpController()
     var tableData:NSArray = NSArray()
     var channelData:NSArray = NSArray()
@@ -25,6 +25,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        progressBar.progress = 0.0
         eHttp.delegate = self
         eHttp.onSearch("http://www.douban.com/j/app/radio/channels")
         eHttp.onSearch("http://douban.fm/j/mine/playlist?channel=0")
@@ -124,6 +125,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         var length = muiscData["length"] as? Int
         playTime.text = formateTime(length!)
         onSetAudio(audioUrl)
+        var counter:Int = 0 {
+            didSet {
+                let fractionalProgress = Float(counter) / 100.0
+                let animated = counter != 0
+                
+                progressBar.setProgress(fractionalProgress, animated: animated)
+            }
+        }
     }
     
     func formateTime(time:Int)->NSString{
