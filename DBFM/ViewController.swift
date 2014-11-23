@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var iv: UIImageView!
     @IBOutlet weak var playTim: UIView!
     @IBOutlet weak var progressView: UIView!
+    @IBOutlet weak var playTime: UILabel!
     
     var eHttp:HttpController = HttpController()
     var tableData:NSArray = NSArray()
@@ -115,9 +116,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         var rowData:NSDictionary = self.tableData[indexPath.row] as NSDictionary
-        
-        var audioUrl:String = rowData["url"] as String
+        updateCurrentMusic(rowData)
+    }
+    
+    func updateCurrentMusic(muiscData:NSDictionary){
+        var audioUrl:String = muiscData["url"] as String
+        var length = muiscData["length"] as? Int
+        playTime.text = formateTime(length!)
         onSetAudio(audioUrl)
     }
+    
+    func formateTime(time:Int)->NSString{
+        var seconds = (time % 60) as NSNumber
+        var minutes = (time / 60) as NSNumber
+        if (seconds.intValue >= 10) {
+            return "\(minutes.stringValue):\(seconds.stringValue)"
+        }else{
+            return "\(minutes.stringValue):0\(seconds.stringValue)"
+        }
+    }
 }
-
