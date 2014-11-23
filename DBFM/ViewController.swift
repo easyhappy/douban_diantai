@@ -22,10 +22,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var channelData:NSArray = NSArray()
     var imageCache = Dictionary<String, UIImage>()
     var audioPlayer:MPMoviePlayerController = MPMoviePlayerController()
+    var timer:NSTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         progressBar.progress = 0.0
+        audioPlayer.repeatMode = .One
         eHttp.delegate = self
         eHttp.onSearch("http://www.douban.com/j/app/radio/channels")
         eHttp.onSearch("http://douban.fm/j/mine/playlist?channel=0")
@@ -94,9 +96,38 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func onSetAudio(url:String){
+        timer?.invalidate()
         self.audioPlayer.stop()
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.4,  target: self,  selector: "onUpdate", userInfo: nil, repeats: true)
         self.audioPlayer.contentURL = NSURL(string:url)
         self.audioPlayer.play()
+        
+    }
+    
+    func onUpdate(){
+        let currentTimer = audioPlayer.currentPlaybackTime
+        if currentTimer>0.0 {
+            let dur = audioPlayer.duration
+            let pecent:CFloat = CFloat(currentTimer/dur)
+            progressBar.setProgress(pecent, animated: false)
+            let all:Int = Int(currentTimer)
+            let m:Int = all%60
+            let f:Int = Int(all/60)
+            var time:String = ""
+            //分钟
+            if f<10{
+                time = "0\(f):"
+            }else{
+                time = "\(f):"
+            }
+            //秒
+            if m<10{
+                time += "0\(m)"
+            }else{
+                time += "\(m)"
+            }
+            playTime.text = time
+        }
     }
     
     func onSetImage(url:String){
